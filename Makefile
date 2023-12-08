@@ -2,7 +2,6 @@
 NAME = so_long
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
-
 #Files variables
 LIBFT = sources/libft
 SRCS_FILES =	sources/main.c \

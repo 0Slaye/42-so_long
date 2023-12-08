@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 16:58:11 by uwywijas          #+#    #+#             */
-/*   Updated: 2023/12/08 19:08:52 by uwywijas         ###   ########.fr       */
+/*   Updated: 2023/12/08 20:29:17 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,11 @@ t_map	*get_map(char *path)
 	if (map == NULL)
 		return (NULL);
 	height = count_line(path);
-	map->data = malloc(sizeof(char *) * height);
+	map->data = malloc(sizeof(char *) * (height + 1));
 	if (map->data == NULL)
-		return (NULL);
+		return (free(map), NULL);
 	set_data(fd, map, height);
 	if (check_map(map) == 1)
-	{
-		printf("Error...\n");
-		return (NULL);
-	}
+		return (freetab(map->data, map->size.y), free(map), NULL);
 	return (close(fd), map);
 }

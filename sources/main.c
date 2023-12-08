@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 16:47:33 by uwywijas          #+#    #+#             */
-/*   Updated: 2023/12/08 18:08:39 by uwywijas         ###   ########.fr       */
+/*   Updated: 2023/12/08 20:12:07 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ int main(void)
 	t_map		*map;
 
 	map = get_map("./maps/exemple.ber");
-	return (0);
+	return (freetab(map->data, map->size.y), free(map), 0);
 }
