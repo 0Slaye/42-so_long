@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 18:41:03 by uwywijas          #+#    #+#             */
-/*   Updated: 2023/12/08 17:03:04 by uwywijas         ###   ########.fr       */
+/*   Updated: 2023/12/08 18:40:42 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*get_buffer_line(int fd, char *buffer, char *result)
 				return (free(result), NULL);
 			return (result);
 		}
-		result = ft_strjoin(result, buffer);
+		result = ft_strjoin_gnl(result, buffer);
 	}
 	return (result);
 }
@@ -62,7 +62,7 @@ char	*get_next_line(int fd)
 		return (NULL);
 	result[0] = '\0';
 	if (buffer[0])
-		result = ft_strjoin(result, buffer);
+		result = ft_strjoin_gnl(result, buffer);
 	if (ft_strchr(buffer, '\n'))
 		buffer_update(buffer);
 	else

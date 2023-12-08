@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map.h                                              :+:      :+:    :+:   */
+/*   common.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/08 16:50:38 by uwywijas          #+#    #+#             */
-/*   Updated: 2023/12/08 19:13:59 by uwywijas         ###   ########.fr       */
+/*   Created: 2023/12/08 18:20:53 by uwywijas          #+#    #+#             */
+/*   Updated: 2023/12/08 18:49:19 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAP_H
-# define MAP_H
+#include "../includes/common.h"
 
-# include "imports.h"
-# include "geometry.h"
-# include "get_next_line.h"
-
-# define WALL '1'
-# define FLOOR '0'
-# define COLLECT 'C'
-# define PLAYER 'P'
-# define EXIT 'E'
-
-typedef struct s_map
+void	print_and_exit(char *error)
 {
-	t_vector2	size;
-	char		**data;
-}	t_map;
+	ft_putstr_fd("Error\n", 1);
+	ft_putstr_fd(error, 1);
+	ft_putstr_fd("\n", 1);
+	exit(EXIT_FAILURE);
+}
 
-t_map	*get_map(char *path);
-int		check_custom_map_char(t_map *map);
-int		check_map(t_map *map);
-
-#endif
+void	freetab(char **value, int i)
+{
+	i++;
+	while (--i >= 0)
+		free(value[i]);
+	free(value);
+}

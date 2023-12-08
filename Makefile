@@ -4,7 +4,14 @@ CC = cc
 CFLAGS = -Wall -Werror -Wextra
 
 #Files variables
-SRCS_FILES = $(wildcard sources/*.c)
+LIBFT = sources/libft
+SRCS_FILES =	sources/main.c \
+				sources/get_next_line/get_next_line.c \
+				sources/get_next_line/get_next_line_utils.c \
+				sources/map/map.c \
+				sources/map/map_checks.c \
+				sources/map/map_checks_utils.c \
+				sources/common.c
 SRCS = $(SRCS_FILES)
 OBJS = $(SRCS:.c=.o)
 INCLS = includes/
@@ -19,10 +26,11 @@ BLUE= \033[1;34m
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	@$(CC) $(CFLAGS) $(OBJS) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+	@make -C $(LIBFT) --no-print-directory
+	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(LIBFT)/libft.a
 	@echo "$(BOLD)Makefile : $(GREEN)Executable created successfully!$(RESET)"
 %.o : %.c
-	@$(CC) $(CFLAGS) -c $< -o $@ -I$(INCLS) -I/usr/include -Imlx_linux -O3
+	@$(CC) $(CFLAGS) -c $< -o $@ -I$(INCLS)
 	@echo "$(BOLD)Makefile : $(BLUE)Scripts compiled.$(RESET)"
 
 clean :

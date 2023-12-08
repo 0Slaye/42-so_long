@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 14:56:49 by uwywijas          #+#    #+#             */
-/*   Updated: 2023/12/08 17:03:02 by uwywijas         ###   ########.fr       */
+/*   Updated: 2023/12/08 18:40:19 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ size_t	ft_strlen(const char *s)
 
 	i = 0;
 	while (s[i] != '\0' && s[i] != '\n')
-		i++;
-	if (s[i] == '\n')
 		i++;
 	return (i);
 }
@@ -42,7 +40,7 @@ char	*ft_strchr(const char *s, int c)
 	return (0);
 }
 
-char	*ft_strjoin(char *s1, char const *s2)
+char	*ft_strjoin_gnl(char *s1, char const *s2)
 {
 	char		*result;
 	size_t		length;

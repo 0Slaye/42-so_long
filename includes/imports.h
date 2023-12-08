@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 16:48:35 by uwywijas          #+#    #+#             */
-/*   Updated: 2023/12/08 16:56:09 by uwywijas         ###   ########.fr       */
+/*   Updated: 2023/12/08 18:49:45 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,7 @@
 # include <stdio.h>
 # include <fcntl.h>
 # include <mlx.h>
+# include "../sources/libft/libft.h"
+# include "common.h"
 
 #endif
