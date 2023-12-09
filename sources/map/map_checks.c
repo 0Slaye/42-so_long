@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 18:11:14 by uwywijas          #+#    #+#             */
-/*   Updated: 2023/12/08 19:55:28 by uwywijas         ###   ########.fr       */
+/*   Updated: 2023/12/09 17:05:10 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ int	check_map(t_map *map)
 		error = 1;
 	else if (!is_map_close(map))
 		error = 1;
-	if (error)
-		return (freetab(map->data, map->size.y), free(map), error);
+	else if (!is_map_valid_path(map, pathfinder(map, get_coord(map, PLAYER))))
+		error = 1;
 	return (error);
 }

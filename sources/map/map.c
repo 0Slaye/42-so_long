@@ -6,11 +6,30 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 16:58:11 by uwywijas          #+#    #+#             */
-/*   Updated: 2023/12/08 20:29:17 by uwywijas         ###   ########.fr       */
+/*   Updated: 2023/12/09 16:29:28 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/map.h"
+
+t_vector2	get_coord(t_map *map, char c)
+{
+	t_vector2	result;
+
+	result.y = -1;
+	while (++result.y < map->size.y)
+	{
+		result.x = -1;
+		while (++result.x < map->size.x)
+		{
+			if (map->data[result.y][result.x] == c)
+				return (result);
+		}
+	}
+	result.x = -1;
+	result.y = -1;
+	return (result);
+}
 
 int	count_line(char *path)
 {

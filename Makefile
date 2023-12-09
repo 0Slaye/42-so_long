@@ -10,6 +10,8 @@ SRCS_FILES =	sources/main.c \
 				sources/map/map.c \
 				sources/map/map_checks.c \
 				sources/map/map_checks_utils.c \
+				sources/map/map_pathfinder.c \
+				sources/map/map_pathfinder_utils.c \
 				sources/common.c
 SRCS = $(SRCS_FILES)
 OBJS = $(SRCS:.c=.o)
@@ -33,10 +35,12 @@ $(NAME) : $(OBJS)
 	@echo "$(BOLD)Makefile : $(BLUE)Scripts compiled.$(RESET)"
 
 clean :
+	@make clean -C $(LIBFT) --no-print-directory
 	@rm -f $(OBJS)
 	@echo "$(BOLD)Makefile : $(BLUE)Objects files removed.$(RESET)"
 
 fclean : clean
+	@make fclean -C $(LIBFT) --no-print-directory
 	@rm -f $(NAME)
 	@echo "$(BOLD)Makefile : $(BLUE)Executable removed.$(RESET)"
 
