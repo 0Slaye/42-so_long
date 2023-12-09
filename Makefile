@@ -12,6 +12,8 @@ SRCS_FILES =	sources/main.c \
 				sources/map/map_checks_utils.c \
 				sources/map/map_pathfinder.c \
 				sources/map/map_pathfinder_utils.c \
+				sources/rw_mlx/rw_mlx.c \
+				sources/rw_mlx/rw_mlx_utils.c \
 				sources/common.c
 SRCS = $(SRCS_FILES)
 OBJS = $(SRCS:.c=.o)
@@ -28,10 +30,10 @@ all : $(NAME)
 
 $(NAME) : $(OBJS)
 	@make -C $(LIBFT) --no-print-directory
-	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(LIBFT)/libft.a
+	@$(CC) $(CFLAGS) $(OBJS) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME) $(LIBFT)/libft.a
 	@echo "$(BOLD)Makefile : $(GREEN)Executable created successfully!$(RESET)"
 %.o : %.c
-	@$(CC) $(CFLAGS) -c $< -o $@ -I$(INCLS)
+	@$(CC) $(CFLAGS) -c $< -o $@ -I$(INCLS) -I/usr/include -Imlx_linux -O3
 	@echo "$(BOLD)Makefile : $(BLUE)Scripts compiled.$(RESET)"
 
 clean :

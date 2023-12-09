@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   common.c                                           :+:      :+:    :+:   */
+/*   rw_mlx.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/08 18:20:53 by uwywijas          #+#    #+#             */
-/*   Updated: 2023/12/09 17:56:17 by uwywijas         ###   ########.fr       */
+/*   Created: 2023/12/06 16:08:01 by uwywijas          #+#    #+#             */
+/*   Updated: 2023/12/09 18:00:59 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/common.h"
+#include "../../includes/rw_mlx.h"
 
-void	print_and_exit(char *error)
+t_image	get_image(void *mlx, char *path)
 {
-	ft_putstr_fd("Error\n", 1);
-	ft_putstr_fd(error, 1);
-	ft_putstr_fd("\n", 1);
-	exit(EXIT_FAILURE);
-}
+	t_image	img;
 
-void	freetab(char **value, int i)
-{
-	i++;
-	while (--i >= 0)
-		free(value[i]);
-	free(value);
+	img.pointer = mlx_xpm_file_to_image(mlx, path, &img.size.x, &img.size.y);
+	img.pixels = mlx_get_data_addr(img.pointer, &img.bits_per_pixel, \
+	&img.line_size, &img.endian);
+	return (img);
 }

@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   common.c                                           :+:      :+:    :+:   */
+/*   rw_mlx_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/08 18:20:53 by uwywijas          #+#    #+#             */
-/*   Updated: 2023/12/09 17:56:17 by uwywijas         ###   ########.fr       */
+/*   Created: 2023/12/06 16:38:31 by uwywijas          #+#    #+#             */
+/*   Updated: 2023/12/09 17:53:55 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/common.h"
+#include "../../includes/rw_mlx.h"
 
-void	print_and_exit(char *error)
+int	on_destroy(t_program *program)
 {
-	ft_putstr_fd("Error\n", 1);
-	ft_putstr_fd(error, 1);
-	ft_putstr_fd("\n", 1);
-	exit(EXIT_FAILURE);
+	mlx_destroy_window(program->mlx, program->window);
+	mlx_destroy_display(program->mlx);
+	freetab(program->map->data, program->map->size.y);
+	free(program->map);
+	free(program->mlx);
+	exit(0);
+	return (0);
 }
 
-void	freetab(char **value, int i)
+int	create_color(int t, int r, int g, int b)
 {
-	i++;
-	while (--i >= 0)
-		free(value[i]);
-	free(value);
+	return (t << 24 | r << 16 | g << 8 | b);
 }
