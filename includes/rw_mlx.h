@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 16:08:15 by uwywijas          #+#    #+#             */
-/*   Updated: 2023/12/11 18:13:54 by uwywijas         ###   ########.fr       */
+/*   Updated: 2023/12/11 18:41:36 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <mlx.h>
 # include "map.h"
 
-# define TILE_OFFSET 16
+# define TILE_OFFSET 32
 # define KEYCODE_CLOSED 17
 # define KEYCODE_ESC 65307
 # define KEYCODE_W 119
