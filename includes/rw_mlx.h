@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 16:08:15 by uwywijas          #+#    #+#             */
-/*   Updated: 2023/12/09 17:54:50 by uwywijas         ###   ########.fr       */
+/*   Updated: 2023/12/11 17:28:54 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 # include <mlx.h>
 # include "map.h"
 
-# define WINDOW_W 800
-# define WINDOW_H 500
 # define TILE_OFFSET 16
 # define KEYCODE_CLOSED 17
 # define KEYCODE_ESC 65307
@@ -31,6 +29,7 @@ typedef struct	s_program
 	void	*mlx;
 	void	*window;
 	t_map	*map;
+	void	**textures;
 }	t_program;
 
 typedef struct	s_image
@@ -44,10 +43,11 @@ typedef struct	s_image
 }	t_image;
 
 t_image	get_image(void *mlx, char *path);
-
+void	show_map(t_program program);
+void	*get_current_image(t_program program, t_vector2 coords);
 void	*create_image(void *mlx, char *path);
 int		create_color(int t, int r, int g, int b);
 int		on_destroy(t_program *program);
-int		on_key_pressed(int keycode, t_program *program);
+int		on_keyinput(int keycode, t_program *program);
 
 #endif

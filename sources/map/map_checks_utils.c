@@ -6,11 +6,12 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 19:10:38 by uwywijas          #+#    #+#             */
-/*   Updated: 2023/12/09 16:11:54 by uwywijas         ###   ########.fr       */
+/*   Updated: 2023/12/11 17:14:02 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/map.h"
+#include "../../includes/rw_mlx.h"
 
 int	check_custom_map_char(t_map *map)
 {

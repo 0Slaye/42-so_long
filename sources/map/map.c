@@ -6,13 +6,14 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 16:58:11 by uwywijas          #+#    #+#             */
-/*   Updated: 2023/12/09 16:29:28 by uwywijas         ###   ########.fr       */
+/*   Updated: 2023/12/11 17:15:45 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/map.h"
+#include "../../includes/rw_mlx.h"
 
-t_vector2	get_coord(t_map *map, char c)
+t_vector2	get_coords(t_map *map, char c)
 {
 	t_vector2	result;
 

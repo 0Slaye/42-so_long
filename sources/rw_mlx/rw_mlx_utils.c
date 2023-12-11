@@ -6,11 +6,13 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 16:38:31 by uwywijas          #+#    #+#             */
-/*   Updated: 2023/12/09 17:53:55 by uwywijas         ###   ########.fr       */
+/*   Updated: 2023/12/11 17:20:36 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../../includes/map.h"
 #include "../../includes/rw_mlx.h"
+#include "../../includes/player.h"
 
 int	on_destroy(t_program *program)
 {
@@ -23,7 +25,24 @@ int	on_destroy(t_program *program)
 	return (0);
 }
 
-int	create_color(int t, int r, int g, int b)
+int	on_keyinput(int keycode, t_program *program)
 {
-	return (t << 24 | r << 16 | g << 8 | b);
+	t_vector2	coords;
+
+	if (keycode == KEYCODE_ESC)
+		return (on_destroy(program));
+	else
+	{
+		coords = get_coords(program->map, 'P');
+		if (keycode == KEYCODE_W)
+			move_up(program->map, coords);
+		if (keycode == KEYCODE_A)
+			move_left(program->map, coords);
+		if (keycode == KEYCODE_S)
+			move_down(program->map, coords);
+		if (keycode == KEYCODE_D)
+			move_right(program->map, coords);
+		show_map(*program);
+	}
+	return (0);
 }

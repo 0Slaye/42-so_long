@@ -14,6 +14,9 @@ SRCS_FILES =	sources/main.c \
 				sources/map/map_pathfinder_utils.c \
 				sources/rw_mlx/rw_mlx.c \
 				sources/rw_mlx/rw_mlx_utils.c \
+				sources/rw_mlx/rw_mlx_window.c \
+				sources/player/player.c \
+				sources/player/player_utils.c \
 				sources/common.c
 SRCS = $(SRCS_FILES)
 OBJS = $(SRCS:.c=.o)
