@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 16:38:31 by uwywijas          #+#    #+#             */
-/*   Updated: 2023/12/11 17:44:37 by uwywijas         ###   ########.fr       */
+/*   Updated: 2023/12/11 18:14:23 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,13 @@
 
 int	on_destroy(t_program *program)
 {
+	clear_window_image(*program);
 	mlx_destroy_window(program->mlx, program->window);
 	mlx_destroy_display(program->mlx);
+	mlx_loop_end(program->mlx);
+	free(program->mlx);
 	freetab(program->map->data, program->map->size.y);
 	free(program->map);
-	free(program->mlx);
 	free(program->textures);
 	exit(0);
 	return (0);
