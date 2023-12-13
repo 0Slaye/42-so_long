@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 16:50:38 by uwywijas          #+#    #+#             */
-/*   Updated: 2023/12/13 16:57:03 by uwywijas         ###   ########.fr       */
+/*   Updated: 2023/12/13 17:57:36 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,13 @@
 # define COLLECT 'C'
 # define PLAYER 'P'
 # define EXIT 'E'
+# define SKEL 'S'
 # define PATHFINDER '+'
-# define TEXTR_WALL "textures/xpm32/wall.xpm"
-# define TEXTR_FLOOR "textures/xpm32/floor.xpm"
-# define TEXTR_COLLECT "textures/xpm32/collectable.xpm"
-# define TEXTR_EXIT "textures/xpm32/exit.xpm"
+# define TEXTR_WALL "textures/wall.xpm"
+# define TEXTR_FLOOR "textures/floor.xpm"
+# define TEXTR_COLLECT "textures/collectable.xpm"
+# define TEXTR_EXIT "textures/exit.xpm"
+# define TEXTR_SKEL "textures/skeleton.xpm"
 
 typedef struct s_vector2
 {

@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 17:17:28 by uwywijas          #+#    #+#             */
-/*   Updated: 2023/12/13 17:43:18 by uwywijas         ###   ########.fr       */
+/*   Updated: 2023/12/13 17:58:13 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	*get_current_image(t_program program, t_vector2 coords)
 		image = get_image(program.mlx, TEXTR_EXIT).pointer;
 	else if (program.map->data[coords.y][coords.x] == COLLECT)
 		image = get_image(program.mlx, TEXTR_COLLECT).pointer;
+	else if (program.map->data[coords.y][coords.x] == SKEL)
+		image = get_image(program.mlx, TEXTR_SKEL).pointer;
 	return (image);
 }
 

@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 19:10:38 by uwywijas          #+#    #+#             */
-/*   Updated: 2023/12/11 17:14:02 by uwywijas         ###   ########.fr       */
+/*   Updated: 2023/12/13 17:58:10 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	check_custom_map_char(t_map *map)
 			{
 				if (map->data[y][x] != COLLECT && map->data[y][x] != PLAYER)
 				{
-					if (map->data[y][x] != EXIT)
+					if (map->data[y][x] != EXIT && map->data[y][x] != SKEL)
 						return (0);
 				}
 			}
