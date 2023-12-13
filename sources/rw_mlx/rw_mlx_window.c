@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 17:17:28 by uwywijas          #+#    #+#             */
-/*   Updated: 2023/12/13 15:39:51 by uwywijas         ###   ########.fr       */
+/*   Updated: 2023/12/13 17:12:51 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	*get_current_image(t_program program, t_vector2 coords)
 	else if (program.map->data[coords.y][coords.x] == FLOOR)
 		image = get_image(program.mlx, TEXTR_FLOOR).pointer;
 	else if (program.map->data[coords.y][coords.x] == PLAYER)
-		image = get_image(program.mlx, TEXTR_PLAYER).pointer;
+		image = get_image(program.mlx, program.current_psprite).pointer;
 	else if (program.map->data[coords.y][coords.x] == EXIT)
 		image = get_image(program.mlx, TEXTR_EXIT).pointer;
 	else if (program.map->data[coords.y][coords.x] == COLLECT)

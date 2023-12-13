@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 16:47:33 by uwywijas          #+#    #+#             */
-/*   Updated: 2023/12/13 16:27:12 by uwywijas         ###   ########.fr       */
+/*   Updated: 2023/12/13 17:13:52 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int	check_map_file(char *filename)
 
 void	game_loop(t_program program)
 {
+	program.current_psprite = TEXTR_PLAYER_3;
 	show_map(program);
 	mlx_hook(program.window, KEYCODE_CLOSED, 0, &on_destroy, &program);
 	mlx_key_hook(program.window, &on_keyinput, &program);

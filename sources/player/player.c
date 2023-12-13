@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 15:48:34 by uwywijas          #+#    #+#             */
-/*   Updated: 2023/12/13 16:44:14 by uwywijas         ###   ########.fr       */
+/*   Updated: 2023/12/13 17:12:31 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	move_up(t_program *program, t_vector2 coords)
 		{
 			program->map->data[coords.y - 1][coords.x] = PLAYER;
 			program->map->data[coords.y][coords.x] = FLOOR;
+			program->current_psprite = TEXTR_PLAYER_1;
 			program->movements++;
 			ft_putstr_fd("Movements : ", 1);
 			ft_putnbr_fd(program->movements, 1);
@@ -56,6 +57,7 @@ void	move_down(t_program *program, t_vector2 coords)
 		{
 			program->map->data[coords.y + 1][coords.x] = PLAYER;
 			program->map->data[coords.y][coords.x] = FLOOR;
+			program->current_psprite = TEXTR_PLAYER_3;
 			program->movements++;
 			ft_putstr_fd("Movements : ", 1);
 			ft_putnbr_fd(program->movements, 1);
@@ -84,6 +86,7 @@ void	move_left(t_program *program, t_vector2 coords)
 		{
 			program->map->data[coords.y][coords.x - 1] = PLAYER;
 			program->map->data[coords.y][coords.x] = FLOOR;
+			program->current_psprite = TEXTR_PLAYER_2;
 			program->movements++;
 			ft_putstr_fd("Movements : ", 1);
 			ft_putnbr_fd(program->movements, 1);
@@ -112,6 +115,7 @@ void	move_right(t_program *program, t_vector2 coords)
 		{
 			program->map->data[coords.y][coords.x + 1] = PLAYER;
 			program->map->data[coords.y][coords.x] = FLOOR;
+			program->current_psprite = TEXTR_PLAYER_4;
 			program->movements++;
 			ft_putstr_fd("Movements : ", 1);
 			ft_putnbr_fd(program->movements, 1);
