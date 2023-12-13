@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 16:38:31 by uwywijas          #+#    #+#             */
-/*   Updated: 2023/12/11 18:17:41 by uwywijas         ###   ########.fr       */
+/*   Updated: 2023/12/13 16:14:27 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,15 @@ int	on_keyinput(int keycode, t_program *program)
 		return (on_destroy(program));
 	else
 	{
-		coords = get_coords(program->map, 'P');
+		coords = get_coords(program->map, PLAYER);
 		if (keycode == KEYCODE_W)
-			move_up(program->map, coords);
+			move_up(program, coords);
 		if (keycode == KEYCODE_A)
-			move_left(program->map, coords);
+			move_left(program, coords);
 		if (keycode == KEYCODE_S)
-			move_down(program->map, coords);
+			move_down(program, coords);
 		if (keycode == KEYCODE_D)
-			move_right(program->map, coords);
+			move_right(program, coords);
 		show_map(*program);
 	}
 	return (0);

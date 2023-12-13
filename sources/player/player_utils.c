@@ -6,52 +6,69 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 15:49:13 by uwywijas          #+#    #+#             */
-/*   Updated: 2023/12/11 16:18:05 by uwywijas         ###   ########.fr       */
+/*   Updated: 2023/12/13 16:19:32 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/player.h"
+#include "../../includes/rw_mlx.h"
 
-void	move_up(t_map *map, t_vector2 coords)
+void	move_up(t_program *program, t_vector2 coords)
 {
 	if (coords.y == 0)
 		return ;
-	if (map->data[coords.y - 1][coords.x] != '1')
+	if (program->map->data[coords.y - 1][coords.x] != '1')
 	{
-		map->data[coords.y - 1][coords.x] = 'P';
-		map->data[coords.y][coords.x] = '0';
+		program->map->data[coords.y - 1][coords.x] = 'P';
+		program->map->data[coords.y][coords.x] = '0';
+		program->movements++;
+		ft_putstr_fd("Movements : ", 1);
+		ft_putnbr_fd(program->movements, 1);
+		ft_putstr_fd("\n", 1);
 	}
 }
 
-void	move_down(t_map *map, t_vector2 coords)
+void	move_down(t_program *program, t_vector2 coords)
 {
-	if (coords.y == map->size.y)
+	if (coords.y == program->map->size.y)
 		return ;
-	if (map->data[coords.y + 1][coords.x] != '1')
+	if (program->map->data[coords.y + 1][coords.x] != '1')
 	{
-		map->data[coords.y + 1][coords.x] = 'P';
-		map->data[coords.y][coords.x] = '0';
+		program->map->data[coords.y + 1][coords.x] = 'P';
+		program->map->data[coords.y][coords.x] = '0';
+		program->movements++;
+		ft_putstr_fd("Movements : ", 1);
+		ft_putnbr_fd(program->movements, 1);
+		ft_putstr_fd("\n", 1);
 	}
 }
 
-void	move_left(t_map *map, t_vector2 coords)
+void	move_left(t_program *program, t_vector2 coords)
 {
 	if (coords.x == 0)
 		return ;
-	if (map->data[coords.y][coords.x - 1] != '1')
+	if (program->map->data[coords.y][coords.x - 1] != '1')
 	{
-		map->data[coords.y][coords.x - 1] = 'P';
-		map->data[coords.y][coords.x] = '0';
+		program->map->data[coords.y][coords.x - 1] = 'P';
+		program->map->data[coords.y][coords.x] = '0';
+		program->movements++;
+		ft_putstr_fd("Movements : ", 1);
+		ft_putnbr_fd(program->movements, 1);
+		ft_putstr_fd("\n", 1);
 	}
 }
 
-void	move_right(t_map *map, t_vector2 coords)
+void	move_right(t_program *program, t_vector2 coords)
 {
-	if (coords.x == map->size.x)
+	if (coords.x == program->map->size.x)
 		return ;
-	if (map->data[coords.y][coords.x + 1] != '1')
+	if (program->map->data[coords.y][coords.x + 1] != '1')
 	{
-		map->data[coords.y][coords.x + 1] = 'P';
-		map->data[coords.y][coords.x] = '0';
+		program->map->data[coords.y][coords.x + 1] = 'P';
+		program->map->data[coords.y][coords.x] = '0';
+		program->movements++;
+		ft_putstr_fd("Movements : ", 1);
+		ft_putnbr_fd(program->movements, 1);
+		ft_putstr_fd("\n", 1);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 16:08:15 by uwywijas          #+#    #+#             */
-/*   Updated: 2023/12/13 15:40:30 by uwywijas         ###   ########.fr       */
+/*   Updated: 2023/12/13 16:17:56 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_program
 	void	*window;
 	t_map	*map;
 	void	**textures;
+	int		movements;
 }	t_program;
 
 typedef struct s_image

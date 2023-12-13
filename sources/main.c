@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 16:47:33 by uwywijas          #+#    #+#             */
-/*   Updated: 2023/12/13 15:40:32 by uwywijas         ###   ########.fr       */
+/*   Updated: 2023/12/13 16:13:18 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ int	main(int argc, char **argv)
 	init_textures(program.textures, map->size.x * (map->size.y + 1));
 	program.map = map;
 	program.mlx = mlx_init();
+	program.movements = 0;
 	program.window = mlx_new_window(program.mlx, window_size.x, window_size.y, \
 	"so_long");
 	game_loop(program);
