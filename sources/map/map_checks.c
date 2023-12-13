@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 18:11:14 by uwywijas          #+#    #+#             */
-/*   Updated: 2023/12/13 16:20:44 by uwywijas         ###   ########.fr       */
+/*   Updated: 2023/12/13 16:28:20 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,9 +91,9 @@ int	check_map(t_map *map)
 	error = 0;
 	if (!check_custom_map_char(map))
 		error = 1;
-	else if (get_map_char(map, 'P') != 1 || get_map_char(map, 'E') != 1)
+	else if (get_map_char(map, PLAYER) != 1 || get_map_char(map, EXIT) != 1)
 		error = 1;
-	else if (get_map_char(map, 'C') < 1)
+	else if (get_map_char(map, COLLECT) < 1)
 		error = 1;
 	else if (!is_map_rectangular(map))
 		error = 1;

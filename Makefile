@@ -16,7 +16,6 @@ SRCS_FILES =	sources/main.c \
 				sources/rw_mlx/rw_mlx_utils.c \
 				sources/rw_mlx/rw_mlx_window.c \
 				sources/player/player.c \
-				sources/player/player_utils.c \
 				sources/common.c
 SRCS = $(SRCS_FILES)
 OBJS = $(SRCS:.c=.o)
