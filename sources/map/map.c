@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 16:58:11 by uwywijas          #+#    #+#             */
-/*   Updated: 2023/12/11 17:15:45 by uwywijas         ###   ########.fr       */
+/*   Updated: 2023/12/13 16:25:46 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ void	set_data(int fd, t_map *map, int height)
 	i = -1;
 	while (++i <= height)
 		map->data[i] = get_next_line(fd);
+	if (map->data[0] == NULL)
+		return ;
 	size.x = ft_strlen(map->data[0]);
 	size.y = height;
 	map->size = size;
@@ -83,6 +85,8 @@ t_map	*get_map(char *path)
 	if (map->data == NULL)
 		return (free(map), NULL);
 	set_data(fd, map, height);
+	if (map->data[0] == NULL)
+		return (free(map), NULL);
 	if (check_map(map) == 1)
 		return (freetab(map->data, map->size.y), free(map), NULL);
 	return (close(fd), map);
