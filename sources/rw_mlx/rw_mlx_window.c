@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 17:17:28 by uwywijas          #+#    #+#             */
-/*   Updated: 2023/12/13 17:12:51 by uwywijas         ###   ########.fr       */
+/*   Updated: 2023/12/13 17:43:18 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,24 +55,27 @@ void	clear_window_image(t_program program)
 void	show_map(t_program program)
 {
 	t_vector2	coords;
+	char		*holder;
 	void		*image;
 	int			i;
 
 	i = 0;
-	coords.y = 0;
+	coords.y = -1;
 	clear_window_image(program);
-	while (coords.y <= program.map->size.y)
+	while (++coords.y <= program.map->size.y)
 	{
-		coords.x = 0;
-		while (coords.x < program.map->size.x)
+		coords.x = -1;
+		while (++coords.x < program.map->size.x)
 		{
 			image = get_current_image(program, coords);
 			program.textures[i] = image;
 			mlx_put_image_to_window(program.mlx, program.window, image, \
 			coords.x * TILE_OFFSET, coords.y * TILE_OFFSET);
-			coords.x++;
+			holder = ft_itoa(program.movements);
+			mlx_string_put(program.mlx, program.window, 10, 20, \
+			create_trgb(0, 255, 255, 255), holder);
+			free(holder);
 			i++;
 		}
-		coords.y++;
 	}
 }

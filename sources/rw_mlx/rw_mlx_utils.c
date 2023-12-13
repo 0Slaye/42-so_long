@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 16:38:31 by uwywijas          #+#    #+#             */
-/*   Updated: 2023/12/13 16:14:27 by uwywijas         ###   ########.fr       */
+/*   Updated: 2023/12/13 17:37:19 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,9 @@ int	on_keyinput(int keycode, t_program *program)
 		show_map(*program);
 	}
 	return (0);
+}
+
+int	create_trgb(int t, int r, int g, int b)
+{
+	return (t << 24 | r << 16 | g << 8 | b);
 }

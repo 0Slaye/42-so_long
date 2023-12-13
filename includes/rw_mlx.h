@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 16:08:15 by uwywijas          #+#    #+#             */
-/*   Updated: 2023/12/13 16:56:18 by uwywijas         ###   ########.fr       */
+/*   Updated: 2023/12/13 17:37:18 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,6 @@ int		create_color(int t, int r, int g, int b);
 int		on_destroy(t_program *program);
 int		on_keyinput(int keycode, t_program *program);
 void	clear_window_image(t_program program);
+int		create_trgb(int t, int r, int g, int b);
 
 #endif
