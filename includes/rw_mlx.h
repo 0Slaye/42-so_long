@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 16:08:15 by uwywijas          #+#    #+#             */
-/*   Updated: 2023/12/11 18:41:36 by uwywijas         ###   ########.fr       */
+/*   Updated: 2023/12/13 15:40:30 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # define KEYCODE_S 115
 # define KEYCODE_D 100
 
-typedef struct	s_program
+typedef struct s_program
 {
 	void	*mlx;
 	void	*window;
@@ -32,7 +32,7 @@ typedef struct	s_program
 	void	**textures;
 }	t_program;
 
-typedef struct	s_image
+typedef struct s_image
 {
 	void		*pointer;
 	t_vector2	size;

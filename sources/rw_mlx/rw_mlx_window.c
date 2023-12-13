@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 17:17:28 by uwywijas          #+#    #+#             */
-/*   Updated: 2023/12/11 18:13:41 by uwywijas         ###   ########.fr       */
+/*   Updated: 2023/12/13 15:39:51 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,8 @@ void	show_map(t_program program)
 		{
 			image = get_current_image(program, coords);
 			program.textures[i] = image;
-			mlx_put_image_to_window(program.mlx, program.window, image, coords.x * TILE_OFFSET, coords.y * TILE_OFFSET);
+			mlx_put_image_to_window(program.mlx, program.window, image, \
+			coords.x * TILE_OFFSET, coords.y * TILE_OFFSET);
 			coords.x++;
 			i++;
 		}
