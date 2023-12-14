@@ -54,10 +54,21 @@ void	clear_window_image(t_program program)
 	}
 }
 
+void	put_string(t_program program)
+{
+	char	*holder;
+
+	holder = ft_itoa(program.movements);
+	mlx_string_put(program.mlx, program.window, 10, 20, \
+	create_trgb(0, 255, 255, 255), holder);
+	if (!holder)
+		on_destroy(&program);
+	free(holder);
+}
+
 void	show_map(t_program program)
 {
 	t_vector2	coords;
-	char		*holder;
 	void		*image;
 	int			i;
 
@@ -75,10 +86,9 @@ void	show_map(t_program program)
 			program.textures[i++] = image;
 			mlx_put_image_to_window(program.mlx, program.window, image, \
 			coords.x * TILE_OFFSET, coords.y * TILE_OFFSET);
-			holder = ft_itoa(program.movements);
-			mlx_string_put(program.mlx, program.window, 10, 20, \
-			create_trgb(0, 255, 255, 255), holder);
-			free(holder);
+			if (!image)
+				on_destroy(&program);
+			put_string(program);
 		}
 	}
 }
