@@ -43,11 +43,30 @@ int	check_map_file(char *filename)
 
 void	game_loop(t_program program)
 {
+	if (!program.window)
+	{
+		mlx_destroy_display(program.mlx);
+		free(program.mlx);
+		freetab(program.map->data, program.map->size.y);
+		free(program.map);
+		free(program.textures);
+		exit(0);
+	}
 	program.current_psprite = TEXTR_PLAYER_3;
 	show_map(program);
 	mlx_hook(program.window, KEYCODE_CLOSED, 0, &on_destroy, &program);
 	mlx_key_hook(program.window, &on_keyinput, &program);
 	mlx_loop(program.mlx);
+}
+
+void	arg_checks(int argc, char **argv)
+{
+	if (argc != 2)
+		return (ft_putstr_fd("Error\nWrong number of arguments.\n", 1), \
+	exit(EXIT_FAILURE));
+	if (!check_map_file(argv[1]))
+		return (ft_putstr_fd("Error\nProbleme with filename.\n", 1), \
+	exit(EXIT_FAILURE));
 }
 
 int	main(int argc, char **argv)
@@ -56,10 +75,7 @@ int	main(int argc, char **argv)
 	t_program	program;
 	t_map		*map;
 
-	if (argc != 2)
-		return (ft_putstr_fd("Error\nWrong number of arguments.\n", 1), 0);
-	if (!check_map_file(argv[1]))
-		return (ft_putstr_fd("Error\nProbleme with filename.\n", 1), 0);
+	arg_checks(argc, argv);
 	map = get_map(argv[1]);
 	if (map == NULL)
 		return (ft_putstr_fd("Error\nWrong map format.\n", 1), 0);
@@ -72,6 +88,9 @@ int	main(int argc, char **argv)
 	init_textures(program.textures, map->size.x * (map->size.y + 1));
 	program.map = map;
 	program.mlx = mlx_init();
+	if (!program.mlx)
+		return (freetab(program.map->data, program.map->size.y), \
+	free(program.map), free(program.textures), 0);
 	program.movements = 0;
 	program.window = mlx_new_window(program.mlx, window_size.x, window_size.y, \
 	"so_long");
