@@ -59,7 +59,6 @@ void	set_data(int fd, t_map *map, int height)
 	int			i;
 
 	i = -1;
-	return ;
 	while (++i <= height)
 		map->data[i] = get_next_line(fd);
 	if (map->data[0] == NULL)
@@ -88,7 +87,7 @@ t_map	*get_map(char *path)
 	set_data(fd, map, height);
 	close(fd);
 	if (map->data[0] == NULL)
-		return (freetab(map->data, height), free(map), NULL);
+		return (free(map), freetab(map->data, map->size.y), NULL);
 	if (check_map(map) == 1)
 		return (freetab(map->data, map->size.y), free(map), NULL);
 	return (map);
