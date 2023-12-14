@@ -70,14 +70,15 @@ void	show_map(t_program program)
 		while (++coords.x < program.map->size.x)
 		{
 			image = get_current_image(program, coords);
-			program.textures[i] = image;
+			if (image == NULL)
+				on_destroy(&program);
+			program.textures[i++] = image;
 			mlx_put_image_to_window(program.mlx, program.window, image, \
 			coords.x * TILE_OFFSET, coords.y * TILE_OFFSET);
 			holder = ft_itoa(program.movements);
 			mlx_string_put(program.mlx, program.window, 10, 20, \
 			create_trgb(0, 255, 255, 255), holder);
 			free(holder);
-			i++;
 		}
 	}
 }
