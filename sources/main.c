@@ -35,7 +35,7 @@ int	check_map_file(char *filename)
 		return (0);
 	if (ft_strlen(checker) == 4)
 	{
-		if (checker[1] == 'b' && checker[2] == 'e' && checker[3] == 'r')
+		if (ft_strncmp(checker, ".ber", 4) == 0)
 			return (1);
 	}
 	return (0);
