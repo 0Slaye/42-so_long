@@ -47,20 +47,34 @@ BONUS = ft_lstnew_bonus.c \
 		ft_lstmap_bonus.c
 OBJB = $(BONUS:.c=.o)
 
-$(NAME) : $(OBJ)
-	ar cr $(NAME) $(OBJ)
+#Extra variables
+RESET = \033[1;39m
+BOLD= \033[1m
+GREEN= \033[1;32m
+BLUE= \033[1;34m
 
 all : $(NAME)
 
+$(NAME) : $(OBJ)
+	@ar cr $(NAME) $(OBJ)
+	@echo "$(BOLD)[$(NAME)] Makefile : $(GREEN)Library created successfully!$(RESET)"
+
+%.o : %.c
+	@$(CC) $(CFLAGS) -o $@ -c $<
+	@echo "$(BOLD)[$(NAME)] Makefile : $(BLUE)Scripts compiled.$(RESET)"
+
 clean :
-	rm -f $(OBJ) $(OBJB)
+	@rm -f $(OBJ) $(OBJB)
+	@echo "$(BOLD)[$(NAME)] Makefile : $(BLUE)Objects files removed.$(RESET)"
 
 fclean : clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
+	@echo "$(BOLD)[$(NAME)] Makefile : $(BLUE)Executable removed.$(RESET)"
 
 re : fclean all
 
 bonus : $(OBJ) $(OBJB)
-	ar cr $(NAME) $(OBJ) $(OBJB)
+	@ar cr $(NAME) $(OBJ) $(OBJB)
+	@echo "$(BOLD)[$(NAME)] Makefile : $(GREEN)Library created successfully with bonus!$(RESET)"
 
 .PHONY : all clean fclean re bonus

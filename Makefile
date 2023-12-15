@@ -33,20 +33,20 @@ all : $(NAME)
 $(NAME) : $(OBJS)
 	@make -C $(LIBFT) --no-print-directory
 	@$(CC) $(CFLAGS) $(OBJS) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME) $(LIBFT)/libft.a
-	@echo "$(BOLD)Makefile : $(GREEN)Executable created successfully!$(RESET)"
+	@echo "$(BOLD)[$(NAME)] Makefile : $(GREEN)Executable created successfully!$(RESET)"
 %.o : %.c
 	@$(CC) $(CFLAGS) -c $< -o $@ -I$(INCLS) -I/usr/include -Imlx_linux -O3
-	@echo "$(BOLD)Makefile : $(BLUE)Scripts compiled.$(RESET)"
+	@echo "$(BOLD)[$(NAME)] Makefile : $(BLUE)Scripts compiled.$(RESET)"
 
 clean :
 	@make clean -C $(LIBFT) --no-print-directory
 	@rm -f $(OBJS)
-	@echo "$(BOLD)Makefile : $(BLUE)Objects files removed.$(RESET)"
+	@echo "$(BOLD)[$(NAME)] Makefile : $(BLUE)Objects files removed.$(RESET)"
 
 fclean : clean
 	@make fclean -C $(LIBFT) --no-print-directory
 	@rm -f $(NAME)
-	@echo "$(BOLD)Makefile : $(BLUE)Executable removed.$(RESET)"
+	@echo "$(BOLD)[$(NAME)] Makefile : $(BLUE)Executable removed.$(RESET)"
 
 re : fclean all
 

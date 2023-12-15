@@ -6,7 +6,7 @@
 /*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 16:58:11 by uwywijas          #+#    #+#             */
-/*   Updated: 2023/12/13 16:25:46 by uwywijas         ###   ########.fr       */
+/*   Updated: 2023/12/15 18:06:15 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,19 +53,23 @@ int	count_line(char *path)
 	return (close(fd), result);
 }
 
-void	set_data(int fd, t_map *map, int height)
+int	set_data(int fd, t_map *map, int height)
 {
 	t_vector2	size;
 	int			i;
 
 	i = -1;
 	while (++i <= height)
+	{
 		map->data[i] = get_next_line(fd);
-	if (map->data[0] == NULL)
-		return ;
-	size.x = ft_strlen(map->data[0]);
+		if (map->data[i] == NULL)
+			return (freetab(map->data, i), 0);
+		else if (i == 0)
+			size.x = ft_strlen(map->data[0]);
+	}
 	size.y = height;
 	map->size = size;
+	return (1);
 }
 
 t_map	*get_map(char *path)
@@ -76,18 +80,17 @@ t_map	*get_map(char *path)
 
 	fd = open(path, O_RDONLY);
 	if (fd < 0)
-		return (NULL);
+		return (close(fd), NULL);
 	map = malloc(sizeof(t_map));
 	if (map == NULL)
-		return (NULL);
+		return (close(fd), NULL);
 	height = count_line(path);
 	map->data = malloc(sizeof(char *) * (height + 1));
 	if (map->data == NULL)
 		return (free(map), NULL);
-	set_data(fd, map, height);
+	if (!set_data(fd, map, height))
+		return (free(map), NULL);
 	close(fd);
-	if (map->data[0] == NULL)
-		return (free(map), freetab(map->data, map->size.y), NULL);
 	if (check_map(map) == 1)
 		return (freetab(map->data, map->size.y), free(map), NULL);
 	return (map);
