@@ -32,10 +32,10 @@ all : $(NAME)
 
 $(NAME) : $(OBJS)
 	@make -C $(LIBFT) --no-print-directory
-	@$(CC) $(CFLAGS) $(OBJS) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME) $(LIBFT)/libft.a
+	@$(CC) $(CFLAGS) $(OBJS) -L. -lmlx -L/usr/lib -Iminilibx -lXext -lX11 -lm -lz -o $(NAME) $(LIBFT)/libft.a
 	@echo "$(BOLD)[$(NAME)] Makefile : $(GREEN)Executable created successfully!$(RESET)"
 %.o : %.c
-	@$(CC) $(CFLAGS) -c $< -o $@ -I$(INCLS) -I/usr/include -Imlx_linux -O3
+	@$(CC) $(CFLAGS) -c $< -o $@ -I$(INCLS) -I/usr/include -Imlx -O3
 	@echo "$(BOLD)[$(NAME)] Makefile : $(BLUE)Scripts compiled.$(RESET)"
 
 clean :

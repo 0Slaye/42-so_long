@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   rw_mlx.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uwywijas <uwywijas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: uwywijas <uwywijas@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 16:08:15 by uwywijas          #+#    #+#             */
-/*   Updated: 2023/12/13 17:37:18 by uwywijas         ###   ########.fr       */
+/*   Updated: 2024/11/13 17:14:23 by uwywijas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RW_MLX_H
 # define RW_MLX_H
 
-# include <mlx.h>
+# include "mlx.h"
 # include "map.h"
 
 # define TILE_OFFSET 32
